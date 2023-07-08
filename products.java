@@ -1,38 +1,34 @@
-package application;
-import java.util.Locale;
-import java.util.Scanner;
+package entities;
 
-import entities.products;
-public class program {
-	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
-		products Products = new  products();
-		System.out.println("Enter product data:");
-		System.out.print("Name:");
-		Products.name = sc.next();
-		System.out.print("Price: ");
-		Products.price = sc.nextDouble();
-		System.out.print("Quantity in stock: ");
-		Products.quantity = sc.nextInt();
-		System.out.println();
-		System.out.println("Product data: " + Products);
-		System.out.println();
-		System.out.print("Enter the number of products to be added in stock: ");
-		int quantity = sc.nextInt();
-		Products.addProducts(quantity);
-		System.out.println();
-		System.out.println("Updated data: " + Products);
-		System.out.println();
-		System.out.print("Enter the number of products to be removed from stock: ");
-		int remove = sc.nextInt();
-		Products.removeProducts(remove);
-		System.out.println();
-		System.out.println("Updated data: " + Products);
+public class products {
+	public  String name;
+	public double price;
+	public int quantity;
+	public products() {
 		
-		
-		sc.close();
 	}
-
-
+	public products (String name, double price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	public products (String name, double price) {
+		this.name = name;
+		this.price = price;
+		
+	}
+	public double totalValueInStock () {
+		return price*quantity;
+	}
+	public void addProducts (int quantity) {
+		this.quantity+= quantity;
+	}
+	public void removeProducts ( int quantity) {
+		this.quantity-= quantity;
+	}
+	public String toString()  {
+		
+		return  name + ", $ " + String.format("%.2f",price) + ", " + quantity + " "
+				+ "units, Total: $" + String.format("%.2f", totalValueInStock());
+	}
 }
