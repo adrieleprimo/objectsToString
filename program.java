@@ -14,6 +14,10 @@ public class program {
 		System.out.print("Price: ");
 		double price = sc.nextDouble();
 		products Products = new products(name, price);
+		Products.setName("Computer");
+		Products.setPrice(1000.00);
+		System.out.println("Updated name: " + Products.getName());
+		System.out.println("Updated price: " + Products.getPrice());
 		System.out.println();
 		System.out.println("Product data: " + Products);
 		System.out.println();
@@ -24,8 +28,8 @@ public class program {
 		System.out.println("Updated data: " + Products);
 		System.out.println();
 		System.out.print("Enter the number of products to be removed from stock: ");
-		int remove = sc.nextInt();
-		Products.removeProducts(remove);
+		quantity = sc.nextInt();
+		Products.removeProducts(quantity);
 		System.out.println();
 		System.out.println("Updated data: " + Products);
 		
