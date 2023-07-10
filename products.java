@@ -1,34 +1,55 @@
 package entities;
 
 public class products {
-	public  String name;
-	public double price;
-	public int quantity;
+	private String name;
+	private double price;
+	private int quantity;
+
 	public products() {
-		
+
 	}
-	public products (String name, double price, int quantity) {
+
+	public products(String name, double price, int quantity) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
 	}
-	public products (String name, double price) {
+
+	public products(String name, double price) {
 		this.name = name;
 		this.price = price;
-		
+
 	}
-	public double totalValueInStock () {
-		return price*quantity;
+	public String getName() {
+		return name;
 	}
-	public void addProducts (int quantity) {
-		this.quantity+= quantity;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void removeProducts ( int quantity) {
-		this.quantity-= quantity;
+	public double getPrice() {
+		return price;
 	}
-	public String toString()  {
-		
-		return  name + ", $ " + String.format("%.2f",price) + ", " + quantity + " "
-				+ "units, Total: $" + String.format("%.2f", totalValueInStock());
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity; 
+	}
+	public double totalValueInStock() {
+		return price * quantity;
+	}
+
+	public void addProducts(int quantity) {
+		this.quantity += quantity;
+	}
+
+	public void removeProducts(int quantity) {
+		this.quantity -= quantity;
+	}
+
+	public String toString() {
+
+		return name + ", $ " + String.format("%.2f", price) + ", " + quantity + " " + "units, Total: $"
+				+ String.format("%.2f", totalValueInStock());
 	}
 }
